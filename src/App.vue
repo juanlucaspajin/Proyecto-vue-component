@@ -1,20 +1,22 @@
 <template>
-  <div id="app">
+  <div>
     <Navbar/>
-    <ContentDelete/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 import Navbar from './components/navbar/AppNavbar.vue'
-import ContentDelete from './components/content-delete/ContentDelete.vue'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+Vue.use(VueRouter)
 
 
 export default {
   name: 'app',
   components: {
-    Navbar,
-    ContentDelete
+    Navbar
   }
 }
 </script>

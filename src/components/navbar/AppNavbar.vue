@@ -2,54 +2,23 @@
   <div>
         <b-navbar toggleable="lg" type="dark" variant="dark">
             <b-navbar-brand class="brand" href="#">
-                <b-img class="logo" rounded src="https://scontent.ftuc1-1.fna.fbcdn.net/v/t1.0-9/15267564_578307575696543_6059643102005025443_n.jpg?_nc_cat=100&_nc_ht=scontent.ftuc1-1.fna&oh=41917aed7f37cfc41b1fb3cd60f91eb1&oe=5D201EB9" alt="Logo" />
+                <router-link to="/">
+                    <b-img class="logo" rounded src="https://scontent.ftuc1-1.fna.fbcdn.net/v/t1.0-9/15267564_578307575696543_6059643102005025443_n.jpg?_nc_cat=100&_nc_ht=scontent.ftuc1-1.fna&oh=41917aed7f37cfc41b1fb3cd60f91eb1&oe=5D201EB9" alt="Logo" />
+                </router-link>
+                
             </b-navbar-brand>
 
             <b-navbar-toggle target="nav_collapse" />
 
             <b-collapse is-nav id="nav_collapse">
-             <b-dropdown text="Agregar productos" variant="outline-light" class="m-2">
-                <b-dropdown-item href="#">Action</b-dropdown-item>
-                <b-dropdown-item href="#">Another action</b-dropdown-item>
-                <b-dropdown-item href="#">Something else here</b-dropdown-item>
-            </b-dropdown> 
-            <b-dropdown text="Eliminar productos" variant="outline-light" class="m-2">
-                <b-dropdown-item href="#">Action</b-dropdown-item>
-                <b-dropdown-item href="#">Another action</b-dropdown-item>
-                <b-dropdown-item href="#">Something else here</b-dropdown-item>
-            </b-dropdown> 
-            <b-dropdown text="Ver productos" variant="outline-light" class="m-2">
-                <b-dropdown-item href="#">Action</b-dropdown-item>
-                <b-dropdown-item href="#">Another action</b-dropdown-item>
-                <b-dropdown-item href="#">Something else here</b-dropdown-item>
-            </b-dropdown>
 
-            <!-- <b-nav-item-dropdown text="Lang">
-                <b-dropdown-item href="#">EN</b-dropdown-item>
-                <b-dropdown-item href="#">ES</b-dropdown-item>
-                <b-dropdown-item href="#">RU</b-dropdown-item>
-                <b-dropdown-item href="#">FA</b-dropdown-item>
-            </b-nav-item-dropdown>
-            <b-nav pills>
-                <b-nav-item-dropdown
-                    id="nav7_ddown"
-                    text="Agregar Productos"
-                    extra-toggle-classes="nav-link-light"
-                    right
-                >
-                <b-dropdown-item>Agregar Articulo</b-dropdown-item>
-                <b-dropdown-item>Agregar Marca</b-dropdown-item>
-                <b-dropdown-item>Agregar Zapato</b-dropdown-item>
-                </b-nav-item-dropdown>
-            </b-nav> 
-            <p class="saludo">Bienvenido</p>
-            <b-navbar-nav class="ml-auto">
-                <b-img thumbnail class="user" rounded="circle" src="https://picsum.photos/125/125/?image=58" alt="Profile" />
-            </b-navbar-nav> -->
+            <router-link to="Adding" tag="button" class="btn btn-outline-primary mr-2 ml-2">Agregar Productos</router-link>
+            <router-link to="Delete" tag="button" class="btn btn-outline-primary mr-2 ml-2">Eliminar Productos</router-link>
+            <router-link to="View" tag="button" class="btn btn-outline-primary mr-2 ml-2">Ver Productos</router-link>
 
             <b-navbar-nav class="ml-auto">
 
-                <p class="saludo">Bienvenido, <b>Admin</b></p>
+                <p class="saludo">Bienvenido, <b>{{profile}}</b></p>
 
                 <b-img class="user" rounded="circle" src="https://picsum.photos/125/125/?image=58" alt="Profile" />
 
@@ -71,7 +40,12 @@ export default {
   name: 'Navbar',
   props: {
     msg: String
-  }
+  },
+  data() {
+      return {
+        profile: 'Admin'
+      }
+    }
 }
 </script>
 
@@ -93,4 +67,5 @@ export default {
     width: 20%;
     height: 40%;
 }
+
 </style>
